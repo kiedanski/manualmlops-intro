@@ -1,0 +1,8 @@
+.AutoMLOps-cache
+.venv
+bert_model
+oppenheimer.json
+oppenheimer.jsonl
+svm_classifier.joblib
+tokenizer
+review_polarity
