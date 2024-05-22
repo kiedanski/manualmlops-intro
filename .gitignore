@@ -1,8 +1,16 @@
 .AutoMLOps-cache
 .venv
+bert/
+tokenizer/
 bert_model
 oppenheimer.json
 oppenheimer.jsonl
 svm_classifier.joblib
 tokenizer
 review_polarity
+.DS_Store
+classifier.joblib
+creds.json
+ml_pipeline.yaml
+review_polarity.zip
+

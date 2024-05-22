@@ -1,14 +1,13 @@
 steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 
-           'northamerica-northeast1-docker.pkg.dev/mlops-devrel/review-classifier/review-classifier',
+    args: ['build', '-t', 'northamerica-northeast1-docker.pkg.dev/mlops-devrel/train/train:latest', 'Dockerfile_train'
            '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'northamerica-northeast1-docker.pkg.dev/mlops-devrel/review-classifier/review-classifier']
+           'northamerica-northeast1-docker.pkg.dev/mlops-devrel/train/train:latest']
 
 options:
   logging: CLOUD_LOGGING_ONLY

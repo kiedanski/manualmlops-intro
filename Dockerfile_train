@@ -1,0 +1,18 @@
+# Dockerfile for training component
+FROM python:3.7
+
+RUN apt-get update && apt-get install -y lsb-release && apt-get install -y gnupg \
+    && echo "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+    && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
+    && apt-get update && apt-get install -y google-cloud-sdk
+
+RUN pip install pandas google-cloud-storage transformers tqdm scikit-learn torch
+
+COPY train.py /train.py
+COPY preprocess.py /preprocess.py
+
+COPY creds.json /creds.json
+ENV GOOGLE_APPLICATION_CREDENTIALS=/creds.json
+
+RUN gcloud auth activate-service-account --key-file=/creds.json
+
