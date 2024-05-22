@@ -9,3 +9,6 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
            'northamerica-northeast1-docker.pkg.dev/mlops-devrel/review-classifier/review-classifier']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
